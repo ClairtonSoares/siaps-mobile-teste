@@ -16,8 +16,8 @@
 <div class="hint">Teste o toque nos filtros, a rolagem e o menu. O modo de escala é experimental e pode não melhorar o enquadramento.</div>
 <main class="viewport" id="viewport"><div class="frame-holder"><iframe id="report" title="Relatório Gerencial SIAPS" allowfullscreen loading="eager"></iframe></div></main>
 <script>
-const base='https://app.powerbi.com/view?r=eyJrIjoiM2M1NzRkYzYtYmRhOS00MzVkLTk1NTItNTJmNjU1OTRhZjZhIiwidCI6ImRiNWFiODZiLTU5YWEtNDRjNS1hOGVmLTBjN2FlYzU5NWY5MyJ9';
-const params=new URLSearchParams(location.search);const page=params.get('page');const url=page?base+'&pageName='+encodeURIComponent(page):base;
+const base='https://app.powerbi.com/view?r=eyJrIjoiYTViNjQ5ZjYtMWIzYi00MTkzLWJmMDUtZTgyYTcxZjU5ZGU3IiwidCI6ImRiNWFiODZiLTU5YWEtNDRjNS1hOGVmLTBjN2FlYzU5NWY5MyJ9';
+const params=new URLSearchParams(location.search);const page=params.get('page')||'6648b3d760d1935780e3';const url=base+'&pageName='+encodeURIComponent(page);
 document.getElementById('report').src=url;document.getElementById('direct').href=url;
 const viewport=document.getElementById('viewport');const normal=document.getElementById('normal');const zoom=document.getElementById('zoom');
 normal.onclick=()=>{viewport.classList.remove('zoom');normal.classList.add('active');zoom.classList.remove('active')};
