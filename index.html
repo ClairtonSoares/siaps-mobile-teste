@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>SIAPS Alagoas | Teste de visualização móvel</title>
+<style>
+:root{font-family:Arial,Helvetica,sans-serif;color:#173b4a;background:#eef2f5}*{box-sizing:border-box}body{margin:0}header{background:#0b4f6c;color:white;padding:12px 14px}header strong{display:block;font-size:16px}header small{font-size:12px}.controls{display:flex;flex-wrap:wrap;gap:8px;padding:10px;background:white;align-items:center}.controls button,.controls a{border:1px solid #b8cbd3;border-radius:6px;padding:9px 12px;background:#f3f8fa;color:#0b4f6c;font-size:13px;text-decoration:none;cursor:pointer}.controls button.active{background:#0b4f6c;color:white}.hint{padding:8px 12px;font-size:12px;color:#455e69;background:#fff}.viewport{width:100%;height:calc(100dvh - 150px);min-height:430px;overflow:auto;background:#e5e5e5;position:relative}.frame-holder{width:100%;height:100%;transform-origin:top left}.frame-holder iframe{width:100%;height:100%;border:0;background:white;display:block}.viewport.zoom .frame-holder{width:140%;height:140%;transform:scale(.7142857)}.viewport.zoom iframe{width:100%;height:100%}@media(min-width:700px){.viewport{max-width:600px;margin:auto;height:calc(100dvh - 140px)}header,.controls,.hint{padding-left:max(14px,calc((100vw - 600px)/2))}}
+</style>
+</head>
+<body>
+<header><strong>SIAPS | ALAGOAS</strong><small>Teste de apresentação responsiva do Relatório Gerencial</small></header>
+<nav class="controls" aria-label="Visualização">
+<button id="normal" class="active" type="button">Ajuste normal</button><button id="zoom" type="button">Teste de escala</button><a id="direct" target="_blank" rel="noopener">Abrir no Power BI</a>
+</nav>
+<div class="hint">Teste o toque nos filtros, a rolagem e o menu. O modo de escala é experimental e pode não melhorar o enquadramento.</div>
+<main class="viewport" id="viewport"><div class="frame-holder"><iframe id="report" title="Relatório Gerencial SIAPS" allowfullscreen loading="eager"></iframe></div></main>
+<script>
+const base='https://app.powerbi.com/view?r=eyJrIjoiM2M1NzRkYzYtYmRhOS00MzVkLTk1NTItNTJmNjU1OTRhZjZhIiwidCI6ImRiNWFiODZiLTU5YWEtNDRjNS1hOGVmLTBjN2FlYzU5NWY5MyJ9';
+const params=new URLSearchParams(location.search);const page=params.get('page');const url=page?base+'&pageName='+encodeURIComponent(page):base;
+document.getElementById('report').src=url;document.getElementById('direct').href=url;
+const viewport=document.getElementById('viewport');const normal=document.getElementById('normal');const zoom=document.getElementById('zoom');
+normal.onclick=()=>{viewport.classList.remove('zoom');normal.classList.add('active');zoom.classList.remove('active')};
+zoom.onclick=()=>{viewport.classList.add('zoom');zoom.classList.add('active');normal.classList.remove('active')};
+</script>
+</body>
+</html>
