@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#0B4F6C">
 <title>SIAPS | Alagoas, teste móvel</title>
 <style>
-*{box-sizing:border-box}html,body{margin:0;padding:0;width:100%;font-family:Arial,Helvetica,sans-serif;background:#edf1f4;color:#173a4a}header{background:#0B4F6C;color:white;padding:10px 12px}header strong{font-size:15px;display:block}header small{font-size:11px}.actions{display:flex;flex-wrap:wrap;gap:8px;padding:9px;background:white;align-items:center}.actions a{display:inline-block;background:#0B4F6C;color:white;border-radius:5px;padding:10px 12px;text-decoration:none;font-size:13px}.actions a.secondary{background:#eef5f8;color:#0B4F6C;border:1px solid #b5ccd7}.note{background:#fff;font-size:12px;padding:0 10px 9px;color:#536b77}.viewer{width:100%;height:auto;overflow:visible;background:#e6e6e6}.viewer iframe{width:100%;height:var(--report-height, 1736px);border:0;display:block;background:#e6e6e6}@media(min-width:650px){.viewer{max-width:440px;margin:0 auto;border-left:1px solid #ccc;border-right:1px solid #ccc}header,.actions,.note{padding-left:max(12px,calc((100vw - 440px)/2));padding-right:max(12px,calc((100vw - 440px)/2))}}
+*{box-sizing:border-box}html,body{margin:0;padding:0;width:100%;font-family:Arial,Helvetica,sans-serif;background:#edf1f4;color:#173a4a}header{background:#0B4F6C;color:white;padding:10px 12px}header strong{font-size:15px;display:block}header small{font-size:11px}.actions{display:flex;flex-wrap:wrap;gap:8px;padding:9px;background:white;align-items:center}.actions a{display:inline-block;background:#0B4F6C;color:white;border-radius:5px;padding:10px 12px;text-decoration:none;font-size:13px}.actions a.secondary{background:#eef5f8;color:#0B4F6C;border:1px solid #b5ccd7}.note{background:#fff;font-size:12px;padding:0 10px 9px;color:#536b77}.viewer{width:100%;height:auto;overflow:visible;background:#e6e6e6}.viewer iframe{width:100%;height:var(--report-height, 2036px);border:0;display:block;background:#e6e6e6}@media(min-width:650px){.viewer{max-width:440px;margin:0 auto;border-left:1px solid #ccc;border-right:1px solid #ccc}header,.actions,.note{padding-left:max(12px,calc((100vw - 440px)/2));padding-right:max(12px,calc((100vw - 440px)/2))}}
 </style>
 </head>
 <body>
@@ -15,13 +15,13 @@
 <div class="note">Role a página para consultar todo o relatório. Os filtros e gráficos permanecem interativos.</div>
 <main class="viewer"><iframe id="report" title="SIAPS Alagoas, Visão Geral móvel" loading="eager" allowfullscreen></iframe></main>
 <script>
-const mobileUrl='https://app.powerbi.com/view?r=eyJrIjoiYTViNjQ5ZjYtMWIzYi00MTkzLWJmMDUtZTgyYTcxZjU5ZGU3IiwidCI6ImRiNWFiODZiLTU5YWEtNDRjNS1hOGVmLTBjN2FlYzU5NWY5MyJ9&pageName=6648b3d760d1935780e3';
+const mobileUrl='https://app.powerbi.com/view?r=eyJrIjoiYTRhODJkYmYtNjlmZS00MmIyLWE1MTEtY2E1MjUxMjY1YTU5IiwidCI6ImRiNWFiODZiLTU5YWEtNDRjNS1hOGVmLTBjN2FlYzU5NWY5MyJ9&pageName=6648b3d760d1935780e3';
 const viewer=document.querySelector('.viewer');
 const report=document.getElementById('report');
-// Canvas original: 390 x 1680. Reserva inicial de 56 px para a barra do Power BI.
+// Canvas do piloto: 390 x 1980. Reserva inicial de 56 px para a barra do Power BI.
 function resizeReport(){
   const width=viewer.clientWidth;
-  report.style.setProperty('--report-height', Math.ceil(width * 1680 / 390 + 56) + 'px');
+  report.style.setProperty('--report-height', Math.ceil(width * 1980 / 390 + 56) + 'px');
 }
 resizeReport();
 new ResizeObserver(resizeReport).observe(viewer);
